@@ -10,7 +10,7 @@
 
 Tagma is a lightweight, functional library for generating HTML and CSS from JavaScript. It favors composability, small runtime output, and predictable code generation for static sites.
 
-Tagma builds upon [Taowei](https://github.com/justbyitself/tagma), a functional JavaScript library.
+Tagma builds upon [Taowei](https://github.com/justbyitself/taowei), a functional JavaScript library.
 
 ## Features
 
