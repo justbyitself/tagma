@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/justbyitself/tagma">
-    <img src="https://raw.githubusercontent.com/justbyitself/taowei/main/tagma.svg" alt="Tagma logo" width="400"/>
+    <img src="https://raw.githubusercontent.com/justbyitself/tagma/main/tagma.svg" alt="Tagma logo" width="400"/>
   </a>
   
   **🚧 Work In Progress (WIP) 🚧**
