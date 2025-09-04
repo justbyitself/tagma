@@ -1,0 +1,37 @@
+{
+  "name": "tagma",
+  "version": "0.0.1",
+  "description": "Functional HTML/CSS library",
+  "author": "justbyitself",
+  "email": "justbyitself@proton.me",
+  "license": "ISC",
+  "keywords": [
+    "html",
+    "css",
+    "functional",
+    "html-in-js",
+    "css-in-js"
+  ],
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "bin": {
+    "tagma": "./bin/tagma.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "vitest --run",
+    "coverage": "vitest run --coverage --run"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.2.4",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "taowei": "^0.1.2"
+  }
+}

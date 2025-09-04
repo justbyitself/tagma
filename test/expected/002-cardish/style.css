@@ -1,0 +1,13 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 2rem;
+  background: #f7fafc;
+  color: #0f172a;
+}
+.header { color: #0b69ff; }
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(11,18,35,0.06);
+}

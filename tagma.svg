@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.11 30.21" id="svg1">
+  <defs>
+    <style type="text/css"><![CDATA[
+    :root{--rect-stroke:#115b92;--rect-fill:none;--rect-opacity:0.928177;--tagma-fill:#1572b6;--tagma-fill-opacity:1}
+    @media (prefers-color-scheme:dark){:root{--rect-stroke:#9fc9ff;--tagma-fill:#dceeff}}
+    .tagma{fill:var(--tagma-fill);fill-opacity:var(--tagma-fill-opacity);stroke-width:0.31}
+    .frame{opacity:var(--rect-opacity);fill:var(--rect-fill);stroke:var(--rect-stroke);stroke-width:1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1}
+    ]]></style>
+  </defs>
+  <g transform="translate(0 .102)">
+    <rect class="frame" width="69.21" height="29.21" x="40.4" y=".4"/>
+    <g transform="translate(0 0) scale(10)">
+      <rect width="3" height="3" x="0" y="0" fill="#fff"/>
+      <rect width="1" height=".57" x="0" y="0" fill="#e44d26"/>
+      <rect width="1" height=".57" x="1" y="0" fill="#1572b6"/>
+      <rect width="1" height=".57" x="2" y="0" fill="#f7df1e"/>
+      <rect width="1" height=".93" x="0" y=".57" fill="#ff6b35"/>
+      <rect width="1" height=".93" x="1" y=".57" fill="#4ecdc4"/>
+      <rect width="1" height=".93" x="2" y=".57" fill="#a8dadc"/>
+      <rect width="1" height="1.5" x="0" y="1.5" fill="#ff9f1c"/>
+      <rect width="1" height="1.5" x="1" y="1.5" fill="#2a9d8f"/>
+      <rect width="1" height="1.5" x="2" y="1.5" fill="#457b9d"/>
+      <rect width="2.9" height="2.9" x=".05" y=".05" fill="none" stroke="#000" stroke-opacity=".2" stroke-width=".1"/>
+    </g>
+    <path class="tagma" d="m 50.699054,12.297254 v -1.79459 h 9.000003 v 1.79459 h -3.598198 v 7.205414 h -1.803607 v -7.205414 z m 18.901807,-1.79459 v 9.000004 h -1.79459 v -2.687376 h -5.410824 v 2.687376 h -1.794589 v -9.000004 z m -7.196395,4.490984 h 5.392787 v -2.687376 h -5.392787 z m 17.098199,-4.490984 v 1.79459 h -7.196396 v 5.401806 h 5.410824 v -1.776554 h -2.705412 v -1.79459 h 4.490984 v 5.374752 h -9.000003 v -9.000004 z m 9.901804,0 v 9.000004 h -1.79459 v -7.196396 h -1.803608 v 2.687376 h -1.803608 v -2.687376 h -1.803608 v 7.196396 h -1.794589 v -9.000004 z m 9.901809,0 v 9.000004 h -1.794595 v -2.687376 h -5.410824 v 2.687376 H 90.30627 v -9.000004 z m -7.196401,4.490984 h 5.392788 v -2.687376 h -5.392788 z" aria-label="TAGMA"/>
+  </g>
+</svg>
