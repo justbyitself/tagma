@@ -1,0 +1,21 @@
+{
+  "scriptId": "375",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/camelToKebab.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 82, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 15, "endOffset": 81, "count": 4 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 44, "endOffset": 80, "count": 2 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scriptId": "419",
+  "url": "file:///home/pmros/prg/tagma/src/fromKeyValues.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 57, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

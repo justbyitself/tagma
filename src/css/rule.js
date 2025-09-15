@@ -1,16 +1,14 @@
-import { toMap, toIterator, map, join } from 'taowei'
+import { camelToKebab, join, map } from 'taowei'
 
-const camelToKebab = (str) => 
-  str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`)
+import fromKeyValues from '../fromKeyValues.js'
 
-const formatProperty = (key, value) => `${camelToKebab(key)}: ${value};`
+const formatProperty = ([key, value]) => `${camelToKebab(key)}: ${value};`
 
-export default selector => (...args) => {
-  const propertiesStr = join('\n\t')(
-    map(
-      ([key, value]) => formatProperty(key, value)
-    )(toIterator(toMap(...args)))
-  )
+const rule = (selector) => (properties) => {
+  const propertiesStr = join('\n\t')(map(formatProperty)(properties))
 
   return `${selector} {\n\t${propertiesStr}\n}\n`
 }
+
+export default (selector) => (...properties) =>
+  rule(selector)(fromKeyValues(properties))

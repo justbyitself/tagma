@@ -1,0 +1,29 @@
+{
+  "scriptId": "404",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/foldWithInit.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 137, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 15, "endOffset": 137, "count": 18 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 21, "endOffset": 137, "count": 27 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        { "startOffset": 29, "endOffset": 137, "count": 23 },
+        { "startOffset": 92, "endOffset": 122, "count": 125 }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "scriptId": "363",
+  "url": "file:///home/pmros/prg/tagma/src/findGenerators.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 193, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 15, "endOffset": 192, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 72, "endOffset": 142, "count": 2 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 158, "endOffset": 191, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

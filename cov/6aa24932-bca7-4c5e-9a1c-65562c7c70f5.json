@@ -1,0 +1,16 @@
+{
+  "scriptId": "624",
+  "url": "file:///home/pmros/prg/tagma/src/css/compact.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 415, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 15, "endOffset": 369, "count": 0 }],
+      "isBlockCoverage": false
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scriptId": "408",
+  "url": "file:///tmp/2399968aba7d440/bad.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 27, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

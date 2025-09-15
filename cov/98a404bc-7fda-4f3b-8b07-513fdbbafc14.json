@@ -1,0 +1,26 @@
+{
+  "scriptId": "333",
+  "url": "file:///home/pmros/prg/tagma/test/loadConfig.test.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 643, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 154, "endOffset": 641, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 198, "endOffset": 464, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 509, "endOffset": 638, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

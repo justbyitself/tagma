@@ -1,3 +1,7 @@
 import { join } from 'taowei'
 
-export default (...rules) => join('\n')(...rules)
+import fromValues from '../fromValues.js'
+
+const cssDocument = join('\n')
+
+export default (...rules) => cssDocument(fromValues(rules))

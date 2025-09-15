@@ -1,0 +1,21 @@
+{
+  "scriptId": "443",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/join.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 109, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 51, "endOffset": 109, "count": 12 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 64, "endOffset": 109, "count": 12 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

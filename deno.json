@@ -1,0 +1,36 @@
+{
+  "name": "tagma",
+  "version": "0.0.2",
+  "description": "Functional HTML/CSS library",
+  "author": "justbyitself",
+  "license": "ISC",
+  "keywords": ["html", "css", "functional", "html-in-js", "css-in-js"],
+  "exports": "./src/index.js",
+  "imports": {
+    "taowei": "npm:taowei@0.2.5",
+    "std/path": "jsr:@std/path",
+    "std/testing/bdd": "jsr:@std/testing/bdd",
+    "std/expect": "jsr:@std/expect"
+  },
+  "tasks": {
+    "test": "deno test --allow-read --allow-write",
+    "coverage": "deno test --allow-read --allow-write --coverage=./cov",
+    "lint": "deno lint",
+    "fmt": "deno fmt"
+  },
+  "lint": {
+    "include": ["src/"],
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "fmt": {
+    "include": ["src/", "tests/"],
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "singleQuote": true,
+    "proseWrap": "always",
+    "semiColons": false
+  }
+}

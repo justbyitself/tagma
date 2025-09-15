@@ -1,10 +1,12 @@
-import { describe, it, expect } from 'vitest'
-import { docType } from '../../src/html'
+import { describe, it } from 'std/testing/bdd'
+import { expect } from 'std/expect'
 
-describe('docType function', () => {
-  it('should return the correct DOCTYPE declaration', () => {
+import { docType } from '../../src/html/index.js'
+
+describe('docType', () => {
+  it('returns the correct DOCTYPE declaration', () => {
     const expected = '<!DOCTYPE html>'
     const result = docType()
-    expect(result).toEqual(expected)
+    expect(result).toBe(expected)
   })
 })

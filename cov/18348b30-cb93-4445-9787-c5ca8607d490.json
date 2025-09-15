@@ -1,0 +1,21 @@
+{
+  "scriptId": "473",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/enumFromTo.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 187, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 137, "endOffset": 185, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 145, "endOffset": 185, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

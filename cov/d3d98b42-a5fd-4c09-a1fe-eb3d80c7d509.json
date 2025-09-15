@@ -1,0 +1,26 @@
+{
+  "scriptId": "333",
+  "url": "file:///home/pmros/prg/tagma/test/importGenerators.test.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 2311, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 273, "endOffset": 2309, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 381, "endOffset": 2306, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 1188, "endOffset": 1204, "count": 4 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

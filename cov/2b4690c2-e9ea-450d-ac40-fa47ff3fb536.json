@@ -1,0 +1,19 @@
+{
+  "scriptId": "435",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/isPojo.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 173, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [
+        { "startOffset": 15, "endOffset": 172, "count": 11 },
+        { "startOffset": 117, "endOffset": 172, "count": 7 }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

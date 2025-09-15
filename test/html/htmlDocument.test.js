@@ -1,12 +1,14 @@
-import { describe, it, expect } from 'vitest'
-import { htmlDocument, compact } from '../../src/html'
+import { describe, it } from 'std/testing/bdd'
+import { expect } from 'std/expect'
 
-describe('htmlDocument function', () => {
-  it('should return a complete HTML document', () => {
+import { htmlDocument, compact } from '../../src/html/index.js'
+
+describe('htmlDocument', () => {
+  it('returns a complete HTML document', () => {
     const head = "<head><title>My Web Page</title></head>"
     const body = "<body><h1>Welcome to my page</h1><p>This is a test paragraph.</p></body>"
 
-    const result = htmlDocument()(head, body)
+    const result = htmlDocument()([head, body])
 
     const expected = `<!DOCTYPE html>
 <html>

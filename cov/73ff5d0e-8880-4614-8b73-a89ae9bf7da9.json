@@ -1,0 +1,29 @@
+{
+  "scriptId": "523",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/map.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 109, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 15, "endOffset": 109, "count": 136 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 21, "endOffset": 109, "count": 136 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        { "startOffset": 33, "endOffset": 107, "count": 136 },
+        { "startOffset": 80, "endOffset": 105, "count": 259 }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

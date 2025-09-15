@@ -1,0 +1,19 @@
+{
+  "scriptId": "482",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/toMap.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 129, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [
+        { "startOffset": 49, "endOffset": 129, "count": 5 },
+        { "startOffset": 73, "endOffset": 106, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

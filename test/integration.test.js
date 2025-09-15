@@ -1,50 +1,36 @@
-import { describe, it, expect } from 'vitest'
-import { readFile } from 'node:fs/promises'
-import { resolve, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import path from 'node:path'
-import fs from 'node:fs'
-import { compact } from '../src/html'
+import { describe, it } from 'std/testing/bdd'
+import { expect } from 'std/expect'
+
+import { fromFileUrl, dirname, join, resolve } from 'std/path'
+import { compact } from "../src/html/index.js"
+import tagma from "../src/tagma.js"
+
+const __filename = fromFileUrl(import.meta.url)
+const __dirname = dirname(__filename)
+
+const examplesPath = resolve(__dirname, "../examples")
+const expectedPath = resolve(__dirname, "./expected")
+
+const exampleDirs = Array.from(Deno.readDirSync(examplesPath))
+  .filter(dirent => dirent.isDirectory)
+  .map(dirent => `${dirent.name}/`)
+
+console.log('Directorios de ejemplos descubiertos:', exampleDirs)
 
 describe('Generation Integration', () => {
-  const __filename = fileURLToPath(import.meta.url)
-  const __dirname = path.dirname(__filename)
-
-  const examplesPath = resolve(__dirname, '../examples')
-  const expectedPath = resolve(__dirname, './expected')
-
-  // Descubrimiento de directorios
-  const exampleDirs = fs.readdirSync(examplesPath, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => `${dirent.name}/`)
-
-  console.log('Directorios de ejemplos descubiertos:', exampleDirs)
-
   exampleDirs.forEach(exampleDir => {
+    
     it(`generates correct files for ${exampleDir}`, async () => {
-      // Buscar archivos .js en el directorio de ejemplos
-      const generatorFiles = fs.readdirSync(join(examplesPath, exampleDir.replace('/', '')))
-        .filter(file => file.endsWith('.js'))
+      const exampleDirPath = join(examplesPath, exampleDir.replace('/', ''))
 
-      // Comparar cada archivo generado con su expected
-      for (const generatorFile of generatorFiles) {
-        const [name, type] = generatorFile.split('.')
-        
-        // Importar generador
-        const generatorPath = join(examplesPath, exampleDir.replace('/', ''), generatorFile)
-        const generatorModule = await import(generatorPath)
-        
-        // Obtener la función generadora (manejar default export o named export)
-        const generator = generatorModule.default || generatorModule
+      const { config, generators } = await tagma(exampleDirPath)
 
-        // Leer expected
-        const expectedFilePath = resolve(expectedPath, exampleDir.replace('/', ''), `${name}.${type}`)
-        const expected = await readFile(expectedFilePath, 'utf-8')
+      for (const g of generators) {        
+        const expectedFilePath = resolve(expectedPath, exampleDir.replace('/', ''), `${g.name}.${g.type}`)
+        const expected = await Deno.readTextFile(expectedFilePath)
 
-        // Generar
-        const result = generator()
+        const result = await g.fn(config)
 
-        // Comparar usando compact
         expect(compact(result)).toBe(compact(expected))
       }
     })

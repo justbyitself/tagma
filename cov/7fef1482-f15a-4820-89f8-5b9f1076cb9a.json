@@ -1,0 +1,21 @@
+{
+  "scriptId": "635",
+  "url": "file:///home/pmros/prg/tagma/src/css/properties/fontFamily.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 206, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "fontFamily",
+      "ranges": [{ "startOffset": 96, "endOffset": 145, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 162, "endOffset": 205, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

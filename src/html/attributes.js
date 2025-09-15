@@ -1,12 +1,23 @@
-import { toMap, toIterator, unwords, map, trim, isNullish, isFalse, isTrue, cond, otherwise } from 'taowei'
+import {
+  cond,
+  isFalse,
+  isNullish,
+  isTrue,
+  join,
+  map,
+  otherwise,
+  trim,
+} from 'taowei'
 
-const format = (key, value) => cond(
-  [isNullish, ''],
-  [isFalse, ''],
-  [isTrue, `${key}`],
-  [otherwise, `${key}="${value}"`]
-)(value)
+import fromKeyValues from '../fromKeyValues.js'
 
-export default (...args) => trim(unwords(
-  map(([key, value]) => format(key, value))(toIterator(toMap(...args)))
-))
+const format = cond([
+  [([_, value]) => isNullish(value), ''],
+  [([_, value]) => isFalse(value), ''],
+  [([_, value]) => isTrue(value), ([key]) => `${key}`],
+  [otherwise, ([key, value]) => `${key}="${value}"`],
+])
+
+const attributes = (attrs) => trim(join(' ')(map(format)(attrs)))
+
+export default (...attrs) => attributes(fromKeyValues(attrs))

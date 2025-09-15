@@ -1,9 +1,11 @@
-import { describe, expect, it } from 'vitest'
-import { voidTag } from '../../src/html'
+import { describe, it } from 'std/testing/bdd'
+import { expect } from 'std/expect'
+
+import { voidTag } from '../../src/html/index.js'
 
 describe('voidTag', () => {
   it('returns a void tag with no attributes', () => {
-    expect(voidTag('img')({})).toBe('<img />')
+    expect(voidTag('img')()).toBe('<img />')
   })
 
   it('returns a void tag with attributes', () => {
@@ -17,7 +19,7 @@ describe('voidTag', () => {
   })
 
   it('returns a void tag with multiple attributes', () => {
-    const attrs = { src: 'image.jpg', alt: 'An image', width: 100 }
-    expect(voidTag('img')(attrs)).toBe('<img src="image.jpg" alt="An image" width="100" />')
+    const attrs = { src: 'image.jpg', alt: 'An image', width: '100px' }
+    expect(voidTag('img')(attrs)).toBe('<img src="image.jpg" alt="An image" width="100px" />')
   })
 })

@@ -1,0 +1,31 @@
+{
+  "scriptId": "333",
+  "url": "file:///home/pmros/prg/tagma/test/html/comment.test.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 810, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 155, "endOffset": 808, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 200, "endOffset": 367, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 401, "endOffset": 534, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 586, "endOffset": 805, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

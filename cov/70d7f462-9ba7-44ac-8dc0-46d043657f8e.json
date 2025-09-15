@@ -1,0 +1,16 @@
+{
+  "scriptId": "481",
+  "url": "file:///tmp/ee386fe7a46a43df/ok.html.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 44, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "g",
+      "ranges": [{ "startOffset": 15, "endOffset": 44, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

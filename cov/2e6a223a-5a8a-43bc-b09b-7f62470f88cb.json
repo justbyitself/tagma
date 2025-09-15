@@ -1,0 +1,16 @@
+{
+  "scriptId": "630",
+  "url": "file:///home/pmros/prg/tagma/examples/001-helloworld/index.html.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 350, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 125, "endOffset": 350, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

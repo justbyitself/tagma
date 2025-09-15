@@ -1,185 +1,160 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S deno run --allow-read --allow-write
 
-// bin/tagma.js
-import fs from 'node:fs'
-import path from 'node:path'
-import url from 'node:url'
-import { parseArgs } from 'node:util'
+import { parse } from "https://deno.land/std@0.203.0/flags/mod.ts"
+import { resolve, basename, join, relative } from "https://deno.land/std@0.203.0/path/mod.ts"
+import tagma from "../src/tagma.js"
 
-/* ---------- helpers ---------- */
-
-const log = (...a) => console.log(...a)
-const warn = (...a) => console.warn(...a)
-const error = (...a) => console.error(...a)
-
-const options = {
-  input: { type: 'string', short: 'i' },
-  output: { type: 'string', short: 'o', default: 'dist' },
-  help: { type: 'boolean', short: 'h' }
-}
-
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true })
-}
-
-function findJsGeneratorsInDir(dir) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true })
-  return entries
-    .filter(e => e.isFile() && /\.([^.]+)\.js$/.test(e.name))
-    .map(e => path.join(dir, e.name))
-}
-
-function deriveOutName(generatorFile) {
-  const base = path.basename(generatorFile) // e.g. 'index.html.js'
-  const m = base.match(/^(.*)\.([^.]+)\.js$/)
-  if (!m) return null
-  return `${m[1]}.${m[2]}` // 'index.html' or 'style.css'
-}
-
-async function importModule(filePath) {
-  const urlPath = url.pathToFileURL(filePath).href
-  return import(urlPath)
-}
-
-function writeFileAtomic(outPath, content) {
-  ensureDir(path.dirname(outPath))
-  fs.writeFileSync(outPath, String(content))
-}
-
-/* ---------- generator processing ---------- */
-
-async function runGeneratorFile(generatorFile, outputDir) {
-  try {
-    const mod = await importModule(generatorFile)
-
-    const defaultOutName = deriveOutName(generatorFile)
-    if (!defaultOutName) {
-      warn(`Skipping (pattern no match): ${generatorFile}`)
-      return
-    }
-
-    let result
-    if (typeof mod.default === 'function') {
-      result = await Promise.resolve(mod.default())
-    } else if (typeof mod.generate === 'function') {
-      result = await Promise.resolve(mod.generate())
-    } else if (typeof mod.generateHead === 'function' || typeof mod.generateBody === 'function') {
-      const headRes = typeof mod.generateHead === 'function' ? mod.generateHead() : ''
-      const bodyRes = typeof mod.generateBody === 'function' ? mod.generateBody() : ''
-      const headContent = typeof headRes === 'function' ? headRes() : headRes
-      const bodyContent = typeof bodyRes === 'function' ? bodyRes() : bodyRes
-      result = `<!doctype html>\n${headContent}${bodyContent}`
-    } else {
-      warn(`No callable export found in ${generatorFile}; skipping`)
-      return
-    }
-
-    if (Array.isArray(result)) {
-      for (const item of result) {
-        if (typeof item === 'string') {
-          const outPath = path.join(outputDir, defaultOutName)
-          writeFileAtomic(outPath, item)
-          log(`Generated: ${outPath}`)
-        } else if (item && typeof item === 'object') {
-          const name = item.name || defaultOutName
-          const content = item.content ?? ''
-          const outPath = path.join(outputDir, name)
-          writeFileAtomic(outPath, content)
-          log(`Generated: ${outPath}`)
-        }
-      }
-    } else if (result && typeof result === 'object' && ('name' in result || 'content' in result)) {
-      const name = result.name || defaultOutName
-      const content = result.content ?? ''
-      const outPath = path.join(outputDir, name)
-      writeFileAtomic(outPath, content)
-      log(`Generated: ${outPath}`)
-    } else {
-      const content = (typeof result === 'function') ? result() : (result ?? '')
-      const outPath = path.join(outputDir, defaultOutName)
-      writeFileAtomic(outPath, content)
-      log(`Generated: ${outPath}`)
-    }
-  } catch (err) {
-    error(`Error processing ${generatorFile}: ${err.message}`)
-  }
-}
-
-/* ---------- main ---------- */
-
-async function main() {
-  const { values } = parseArgs({ args: process.argv.slice(2), options })
-
-  if (values.help) {
-    console.log(`
-Usage: tagma [options]
-  -i, --input    Input file or directory
+function usage() {
+  return `Usage: tagma [options]
+  -i, --input    Input directory
   -o, --output   Output directory (default: dist or dist/<input-dir-name> when input is a dir)
   -h, --help     Show help
-`)
-    process.exit(0)
-  }
+`
+}
 
-  if (!values.input) {
-    error('Error: Input file or directory is required')
-    process.exit(1)
-  }
+function defaultOutputForInput(inputPath) {
+  const stat = Deno.statSync(inputPath)
+  if (stat.isDirectory) return join("dist", basename(inputPath))
+  return "dist"
+}
 
-  const inputPath = path.resolve(values.input)
+function stripJsExtension(name) {
+  // remove a single trailing ".js" only
+  return name.replace(/\.js$/, "")
+}
 
-  // Determine outputDir:
-  // - If user passed -o explicitly (any value), use it.
-  // - Else if input is a directory, default to dist/<basename(input)>
-  // - Else default to dist
-  let outputDir
-  let stats
-  try {
-    stats = fs.statSync(inputPath)
-  } catch (err) {
-    error(`Error: input path does not exist: ${inputPath}`)
-    process.exit(1)
-  }
+function filenameForGenerator(g) {
+  if (g && typeof g.basename === "string" && g.basename.length > 0) return stripJsExtension(g.basename)
+  if (g && typeof g.name === "string" && typeof g.type === "string") return `${g.name}.${g.type}`
+  if (g && typeof g.path === "string") return stripJsExtension(basename(g.path))
+  return "unknown"
+}
 
-  const userProvidedOutput = process.argv.includes('-o') || process.argv.includes('--output')
-  if (userProvidedOutput) {
-    outputDir = path.resolve(values.output)
+async function writeFile(outDir, filename, data) {
+  const outPath = join(outDir, filename)
+  await Deno.mkdir(resolve(outDir), { recursive: true })
+  if (data instanceof Uint8Array) {
+    await Deno.writeFile(outPath, data)
   } else {
-    if (stats.isDirectory()) {
-      outputDir = path.resolve('dist', path.basename(inputPath))
+    await Deno.writeTextFile(outPath, String(data))
+  }
+  return outPath
+}
+
+function printErrors(errors) {
+  if (!Array.isArray(errors) || errors.length === 0) return
+  console.error("Generators errors:")
+  for (const e of errors) {
+    if (e && e.path) {
+      console.error(`- ${e.path}:`, e.message ?? JSON.stringify(e))
     } else {
-      outputDir = path.resolve('dist')
+      console.error("-", e)
     }
-  }
-
-  if (stats.isDirectory()) {
-    let files = findJsGeneratorsInDir(inputPath)
-    if (files.length === 0) {
-      error('No generator files found in directory')
-      process.exit(1)
-    }
-
-    files.sort((a, b) => {
-      const aCss = a.endsWith('.css.js')
-      const bCss = b.endsWith('.css.js')
-      if (aCss && !bCss) return -1
-      if (bCss && !aCss) return 1
-      return a.localeCompare(b)
-    })
-
-    ensureDir(outputDir)
-    for (const file of files) {
-      await runGeneratorFile(file, outputDir)
-    }
-  } else if (stats.isFile()) {
-    ensureDir(outputDir)
-    await runGeneratorFile(inputPath, outputDir)
-  } else {
-    error('Error: input is neither file nor directory')
-    process.exit(1)
   }
 }
 
-main().catch(err => {
-  error(err)
-  process.exit(1)
-})
+async function main() {
+  const parsed = parse(Deno.args, {
+    string: ["i", "input", "o", "output"],
+    boolean: ["h", "help"],
+    alias: { i: "input", o: "output", h: "help" },
+  })
+
+  if (parsed.help) {
+    console.log(usage())
+    return
+  }
+
+  const input = parsed.input
+  if (!input) {
+    console.error("Error: --input is required\n")
+    console.log(usage())
+    Deno.exit(2)
+  }
+
+  if (typeof tagma !== "function") {
+    console.error("Error: src/tagma.js does not export a default function")
+    Deno.exit(3)
+  }
+
+  const absInput = resolve(input)
+  let outDir
+  try {
+    outDir = parsed.output ?? defaultOutputForInput(absInput)
+  } catch (err) {
+    console.error("Error resolving output directory:", err)
+    Deno.exit(1)
+  }
+
+  console.log(
+    `input: ${relative(Deno.cwd(), absInput)}\noutput: ${relative(
+      Deno.cwd(),
+      resolve(outDir)
+    )}`
+  )
+
+  try {
+    const result = await tagma(absInput)
+    const { config, generators, errors } = result ?? {}
+
+    
+
+    if (Array.isArray(errors) && errors.length > 0) {
+      printErrors(errors)
+    }
+
+    if (!Array.isArray(generators) || generators.length === 0) {
+      console.error("No generators found")
+      Deno.exit(1)
+    }
+
+    let written = 0
+    const writeFailures = []
+
+    for (const g of generators) {
+      if (!g || typeof g.fn !== "function") {
+        writeFailures.push({ path: g && g.path, reason: "invalid generator (no fn)" })
+        continue
+      }
+
+      const targetName = filenameForGenerator(g)
+
+      try {
+        const res = await g.fn(config)
+
+        // accept { filename, content }
+        let filename = targetName
+        //let content = res
+
+        if (res && typeof res === "object" && !(res instanceof Uint8Array) && !(typeof res === "string")) {
+          if (typeof res.filename === "string" && res.filename.length > 0) filename = stripJsExtension(res.filename)
+          content = res.content
+        }
+
+        await writeFile(outDir, filename, res)
+        console.log(`Wrote ${filename}`)
+        written++
+      } catch (err) {
+        console.error(`Error running generator ${g.path ?? targetName}:`, err)
+        writeFailures.push({ path: g && g.path, reason: err && err.message ? err.message : String(err) })
+      }
+    }
+
+    if (writeFailures.length > 0 || (Array.isArray(errors) && errors.length > 0)) {
+      Deno.exit(1)
+    }
+
+    if (written === 0) {
+      console.error("No files written")
+      Deno.exit(1)
+    }
+
+    Deno.exit(0)
+  } catch (err) {
+    console.error("tagma threw an error:")
+    console.error(err)
+    Deno.exit(1)
+  }
+}
+
+if (import.meta.main) main()

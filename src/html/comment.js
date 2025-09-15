@@ -1,1 +1,1 @@
-export default comment => `<!-- ${comment} -->`
+export default (comment) => `<!-- ${comment} -->`

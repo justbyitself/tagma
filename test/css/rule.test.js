@@ -1,5 +1,7 @@
-import { describe, it, expect } from 'vitest'
-import { rule, compact } from '../../src/css'
+import { describe, it } from 'std/testing/bdd'
+import { expect } from 'std/expect'
+
+import { rule, compact } from '../../src/css/index.js'
 
 describe('rule', () => {
   it('creates a basic CSS rule with a single property', () => {

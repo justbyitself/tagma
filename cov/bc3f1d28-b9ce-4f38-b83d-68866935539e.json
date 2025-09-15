@@ -1,0 +1,16 @@
+{
+  "scriptId": "459",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/reject.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 112, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 76, "endOffset": 111, "count": 0 }],
+      "isBlockCoverage": false
+    }
+  ]
+}

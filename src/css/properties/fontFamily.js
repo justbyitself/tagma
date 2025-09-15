@@ -1,3 +1,7 @@
 import { join } from 'taowei'
 
-export default (...args) => ({"font-family": join(', ')(...args)})
+import fromValues from '../../fromValues.js'
+
+const fontFamily = (fonts) => ({ 'font-family': join(', ')(fonts) })
+
+export default (...fonts) => fontFamily(fromValues(fonts))

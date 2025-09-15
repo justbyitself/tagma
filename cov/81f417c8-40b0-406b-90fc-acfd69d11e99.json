@@ -1,0 +1,11 @@
+{
+  "scriptId": "407",
+  "url": "file:///tmp/2399968aba7d440/value.rss.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 22, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

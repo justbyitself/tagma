@@ -1,1 +1,1 @@
-export default v => `${v}rem`
+export default (v) => `${v}rem`

@@ -1,0 +1,39 @@
+{
+  "scriptId": "333",
+  "url": "file:///home/pmros/prg/tagma/test/integration.test.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 1272, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 501, "endOffset": 529, "count": 3 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 538, "endOffset": 565, "count": 3 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 670, "endOffset": 1270, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 700, "endOffset": 1267, "count": 3 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        { "startOffset": 773, "endOffset": 1262, "count": 3 },
+        { "startOffset": 965, "endOffset": 1256, "count": 5 }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

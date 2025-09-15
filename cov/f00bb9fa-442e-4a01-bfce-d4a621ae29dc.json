@@ -1,0 +1,16 @@
+{
+  "scriptId": "628",
+  "url": "file:///home/pmros/prg/tagma/src/units/rem.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 32, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 15, "endOffset": 31, "count": 2 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

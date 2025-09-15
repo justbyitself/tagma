@@ -1,8 +1,13 @@
 import { join } from 'taowei'
 
 import docType from './docType.js'
-import { tags } from './index.js'
+import contentTag from './contentTag.js'
 
+import fromKeyValues from '../fromKeyValues.js'
+import fromValues from '../fromValues.js'
 
-export default (...attrs) => (...content) => join()
-  (docType(), tags.html(...attrs)(...content))
+const htmlDocument = attrs => children =>
+  join('')([docType(), contentTag('html')(attrs)(children)])
+
+export default (...attrs) => (...children) =>
+  htmlDocument(fromKeyValues(attrs))(fromValues(children))

@@ -1,0 +1,16 @@
+{
+  "scriptId": "449",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/none.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 132, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 74, "endOffset": 130, "count": 0 }],
+      "isBlockCoverage": false
+    }
+  ]
+}

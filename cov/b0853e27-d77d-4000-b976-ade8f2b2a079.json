@@ -1,0 +1,21 @@
+{
+  "scriptId": "622",
+  "url": "file:///home/pmros/prg/tagma/src/html/attributes/className.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 216, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "className",
+      "ranges": [{ "startOffset": 95, "endOffset": 146, "count": 4 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "default",
+      "ranges": [{ "startOffset": 163, "endOffset": 215, "count": 4 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

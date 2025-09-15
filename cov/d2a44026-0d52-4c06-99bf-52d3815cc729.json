@@ -1,0 +1,11 @@
+{
+  "scriptId": "485",
+  "url": "file:///home/pmros/.cache/deno/npm/registry.npmjs.org/taowei/0.2.5/src/isBoolean.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 68, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

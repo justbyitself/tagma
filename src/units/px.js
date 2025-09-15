@@ -1,1 +1,1 @@
-export default v => `${v}px`
+export default (v) => `${v}px`

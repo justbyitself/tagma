@@ -1,8 +1,10 @@
-import { describe, it, expect } from 'vitest'
-import { compact } from '../../src/html'
+import { describe, it } from 'std/testing/bdd'
+import { expect } from 'std/expect'
 
-describe('compact function', () => {
-  it('should remove unnecessary spaces in HTML string', () => {
+import { compact } from '../../src/html/index.js'
+
+describe('compact', () => {
+  it('removes unnecessary spaces in HTML string', () => {
     const input = `
             <div>    
                 <h1>   Welcome to my page   </h1>
@@ -16,7 +18,7 @@ describe('compact function', () => {
     expect(result).toBe(expected)
   })
 
-  it('should handle empty strings', () => {
+  it('handles empty strings', () => {
     const input = ''
     const expected = ''
 
@@ -25,7 +27,7 @@ describe('compact function', () => {
     expect(result).toBe(expected)
   })
 
-  it('should handle strings without unnecessary spaces', () => {
+  it('handles strings without unnecessary spaces', () => {
     const input = '<div><h1>Welcome</h1><p>Text</p></div>'
     const expected = '<div><h1>Welcome</h1><p>Text</p></div>'
 

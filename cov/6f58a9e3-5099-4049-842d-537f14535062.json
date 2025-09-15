@@ -1,0 +1,26 @@
+{
+  "scriptId": "333",
+  "url": "file:///home/pmros/prg/tagma/test/css/rule.test.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 737, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 157, "endOffset": 735, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 221, "endOffset": 398, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 449, "endOffset": 732, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}
