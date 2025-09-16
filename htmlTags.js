@@ -118,8 +118,7 @@ const voidTags = [
   'wbr',
 ]
 
-export default () =>
-  toPojoOf([
+export default toPojoOf([
     map((name) => [name, contentTag(name)])(contentTags),
     map((name) => [name, voidTag(name)])(voidTags),
   ])
