@@ -77,12 +77,6 @@ export default () => cssDocument(
 
 For more examples, check out the [examples/](examples/) directory.
 
-## Installation
-
-```bash
-npm install tagma
-```
-
 ## CLI
 
 Generate HTML and CSS files from JavaScript scripts:
@@ -96,12 +90,3 @@ tagma -i examples/my-project
 
 Tagma is built on top of [Taowei](https://github.com/justbyitself/taowei), a functional JavaScript library.
 
-## Tests
-
-```bash
-# Run tests
-npm test
-
-# Generate code coverage
-npm run coverage
-```

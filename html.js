@@ -1,0 +1,7 @@
+export { default as attributes } from './src/html/attributes.js'
+export { default as comment } from './src/html/comment.js'
+export { default as compact } from './src/html/compact.js'
+export { default as contentTag } from './src/html/contentTag.js'
+export { default as docType } from './src/html/docType.js'
+export { default as htmlDocument } from './src/html/htmlDocument.js'
+export { default as voidTag } from './src/html/voidTag.js'

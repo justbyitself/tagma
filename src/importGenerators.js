@@ -1,5 +1,5 @@
 // src/importGenerators.js
-import { basename as pathBasename } from 'https://deno.land/std@0.203.0/path/mod.ts'
+import { basename as pathBasename } from 'std/path'
 
 export default async function importGenerators(paths) {
   const results = await Promise.all(
