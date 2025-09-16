@@ -1,7 +1,7 @@
 import { map, toPojoOf } from 'taowei'
 
-import contentTag from './src/html/contentTag.js'
-import voidTag from './src/html/voidTag.js'
+import contentTag from './contentTag.js'
+import voidTag from './voidTag.js'
 
 const contentTags = [
   'a',
