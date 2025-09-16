@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { contentTag } from '../../src/html/index.js'
+import { contentTag } from '../../html.js'
 
 describe('contentTag', () => {
   it('creates a simple HTML element without attributes or children', () => {

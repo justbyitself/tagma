@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { voidTag } from '../../src/html/index.js'
+import { voidTag } from '../../html.js'
 
 describe('voidTag', () => {
   it('returns a void tag with no attributes', () => {

@@ -1,4 +1,4 @@
-import { htmlDocument, tags } from '../../src/html/index.js'
+import { htmlDocument, tags } from '../../html.js'
 import { className } from '../../src/html/attributes/index.js'
 const { head, body, meta, title, link, div, h1 } = tags
 

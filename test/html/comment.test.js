@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { comment } from '../../src/html/index.js'
+import { comment } from '../../html.js'
 
 describe('comment', () => {
   it('creates a valid HTML comment', () => {

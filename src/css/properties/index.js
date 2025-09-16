@@ -1,1 +1,0 @@
-export { default as fontFamily } from './fontFamily.js'

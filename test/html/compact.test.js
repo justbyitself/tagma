@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { compact } from '../../src/html/index.js'
+import { compact } from '../../html.js'
 
 describe('compact', () => {
   it('removes unnecessary spaces in HTML string', () => {

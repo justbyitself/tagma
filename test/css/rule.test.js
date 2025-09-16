@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { rule, compact } from '../../src/css/index.js'
+import { rule, compact } from '../../css.js'
 
 describe('rule', () => {
   it('creates a basic CSS rule with a single property', () => {

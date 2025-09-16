@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { htmlDocument, compact } from '../../src/html/index.js'
+import { htmlDocument, compact } from '../../html.js'
 
 describe('htmlDocument', () => {
   it('returns a complete HTML document', () => {

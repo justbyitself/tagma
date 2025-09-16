@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { docType } from '../../src/html/index.js'
+import { docType } from '../../html.js'
 
 describe('docType', () => {
   it('returns the correct DOCTYPE declaration', () => {

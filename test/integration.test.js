@@ -2,7 +2,7 @@ import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
 import { fromFileUrl, dirname, join, resolve } from 'std/path'
-import { compact } from "../src/html/index.js"
+import { compact } from "../html.js"
 import tagma from "../src/tagma.js"
 
 const __filename = fromFileUrl(import.meta.url)

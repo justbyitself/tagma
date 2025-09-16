@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { attributes } from '../../src/html/index.js'
+import { attributes } from '../../html.js'
 
 describe('attributes', () => {
   it('converts a single object to HTML attributes', () => {
