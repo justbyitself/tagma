@@ -12,7 +12,7 @@ Tagma is a lightweight, functional library for generating HTML and CSS using Jav
 
 ### Why Tagma?
 
-| Aspect | Traditional HTML | Tagma |
+| Aspect | Traditional HTML/CSS | Tagma |
 |--------|------------------|-------|
 | Code Repetition | High | Low |
 | Parameterization | Limited | Very Flexible |

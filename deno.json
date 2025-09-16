@@ -1,6 +1,6 @@
 {
   "name": "@justbyitself/tagma",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Functional HTML/CSS library",
   "author": "justbyitself",
   "license": "ISC",
@@ -9,6 +9,7 @@
     ".": "./mod.js",
     "./html": "./html.js",
     "./html/tags": "./htmlTags.js",
+    "./html/attributes": "./htmlAttributes.js",
     "./css": "./css.js",
     "./css/properties": "./cssProperties.js",
     "./color": "./color.js",
@@ -17,7 +18,7 @@
   "imports": {
     "taowei": "npm:taowei@0.2.5",
     "std/path": "jsr:@std/path@1.1.2",
-    "std/testing/bdd": "jsr:@std/testing/bdd@1.0.15",
+    "std/testing": "jsr:@std/testing@1.0.15",
     "std/expect": "jsr:@std/expect@1.0.17"
   },
   "tasks": {
