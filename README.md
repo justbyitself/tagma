@@ -24,18 +24,17 @@ Tagma is a lightweight, functional library for generating HTML and CSS using Jav
 - 🧩 **Functional and Declarative API**: Programmatically generate HTML and CSS
 - 🚀 **No runtime overhead**: Static generation without extra complexity
 - 🛠 **Integrated Utilities**: Support for attributes, properties, units, and colors
-- 📦 **Built-in CLI**: Generate files directly from JS modules
 
-## Basic Example
+## Basic Examples
 
-### HTML Generation (index.html.js)
+### HTML Generation
 
 ```javascript
 import { htmlDocument, tags } from 'tagma/html'
 import { className } from 'tagma/html/attributes'
 const { head, body, meta, title, link, div, h1 } = tags
 
-export default () => htmlDocument({ lang: 'en' })(
+const html = htmlDocument({ lang: 'en' })(
   head()(
     meta({ charset: 'UTF-8' }),
     title()('Tagma Example'),
@@ -48,9 +47,11 @@ export default () => htmlDocument({ lang: 'en' })(
     )
   )
 )
+
+console.log(html)
 ```
 
-### CSS Generation (styles.css.js)
+### CSS Generation
 
 ```javascript
 import { cssDocument, rule } from 'tagma/css'
@@ -58,7 +59,7 @@ import { fontFamily } from 'tagma/css/properties'
 import { rem, px } from 'tagma/units'
 import { hex } from 'tagma/color'
 
-export default () => cssDocument(
+const css = cssDocument(
   rule('body')(
     fontFamily('system-ui', 'sans-serif'),
     {
@@ -73,18 +74,11 @@ export default () => cssDocument(
     borderRadius: px(8)
   })
 )
+
+console.log(css)
 ```
 
-For more examples, check out the [examples/](examples/) directory.
-
-## CLI
-
-Generate HTML and CSS files from JavaScript scripts:
-
-```bash
-# Generate index.html from index.html.js and styles.css from styles.css.js in dist/
-tagma -i examples/my-project
-```
+For more examples, check out the [examples/](https://github.com/justbyitself/tagma/tree/main/examples) directory.
 
 ## Built on Taowei
 
