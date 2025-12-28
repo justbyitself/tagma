@@ -6,7 +6,6 @@
   "license": "ISC",
   "keywords": ["html", "css", "functional", "html-in-js", "css-in-js"],
   "exports": {
-    ".": "./mod.js",
     "./html": "./html.js",
     "./html/attributes": "./htmlAttributes.js",
     "./css": "./css.js",
