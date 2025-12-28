@@ -1,6 +1,4 @@
-import { join } from 'taowei'
-
-import fromValues from '../../fromValues.js'
+import { join, concat as fromValues } from 'taowei'
 
 const className = (classNames) => ({ class: join(', ')(classNames) })
 
