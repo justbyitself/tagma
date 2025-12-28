@@ -14,7 +14,7 @@
     "./units": "./units.js"
   },
   "imports": {
-    "taowei": "npm:taowei@0.2.8",
+    "taowei": "npm:taowei@0.2.9",
     "std/path": "jsr:@std/path@1.1.2",
     "std/testing": "jsr:@std/testing@1.0.15",
     "std/expect": "jsr:@std/expect@1.0.17"

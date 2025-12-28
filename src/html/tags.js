@@ -1,4 +1,4 @@
-import { map, toPojoOf } from 'taowei'
+import { map, toPojo } from 'taowei'
 
 import contentTag from './contentTag.js'
 import voidTag from './voidTag.js'
@@ -118,7 +118,9 @@ const voidTags = [
   'wbr',
 ]
 
-export default toPojoOf([
-    map((name) => [name, contentTag(name)])(contentTags),
-    map((name) => [name, voidTag(name)])(voidTags),
+export default toPojo([
+    ...map((name) => [name, contentTag(name)])(contentTags),
+    ...map((name) => [name, voidTag(name)])(voidTags),
   ])
+
+
