@@ -1,6 +1,6 @@
-import attributes from './attributes.js'
+import { toMapOf as fromKeyValues } from 'taowei'
 
-import fromKeyValues from '../fromKeyValues.js'
+import attributes from './attributes.js'
 
 const voidTag = (name) => (attrs) => {
   const attrsStr = attributes(attrs)

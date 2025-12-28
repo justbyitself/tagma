@@ -7,9 +7,8 @@ import {
   map,
   otherwise,
   trim,
+  toMapOf as fromKeyValues
 } from 'taowei'
-
-import fromKeyValues from '../fromKeyValues.js'
 
 const format = cond([
   [([_, value]) => isNullish(value), ''],

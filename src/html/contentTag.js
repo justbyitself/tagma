@@ -1,8 +1,5 @@
-import { join } from 'taowei'
+import { join, toMapOf as fromKeyValues, concat as fromValues} from 'taowei'
 import attributes from './attributes.js'
-
-import fromKeyValues from '../fromKeyValues.js'
-import fromValues from '../fromValues.js'
 
 const contentTag = (name) => (attrs) => (children) => {
   const attrsStr = attributes(attrs)

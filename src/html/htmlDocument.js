@@ -1,10 +1,8 @@
-import { join } from 'taowei'
+import { join, toMapOf as fromKeyValues, concat as fromValues } from 'taowei'
 
 import docType from './docType.js'
 import contentTag from './contentTag.js'
 
-import fromKeyValues from '../fromKeyValues.js'
-import fromValues from '../fromValues.js'
 
 const htmlDocument = (attrs) => (children) =>
   join('')([docType(), contentTag('html')(attrs)(children)])

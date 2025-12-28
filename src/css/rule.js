@@ -1,6 +1,4 @@
-import { camelToKebab, join, map } from 'taowei'
-
-import fromKeyValues from '../fromKeyValues.js'
+import { camelToKebab, join, map, toMapOf as fromKeyValues } from 'taowei'
 
 const formatProperty = ([key, value]) => `${camelToKebab(key)}: ${value};`
 
