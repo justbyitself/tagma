@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { rule, compact } from '../../css.js'
+import { rule, normalize } from '../../css.js'
 
 describe('rule', () => {
   it('creates a basic CSS rule with a single property', () => {
@@ -13,7 +13,7 @@ describe('rule', () => {
     color: black;
 }`
 
-    expect(compact(result)).toBe(compact(expected))
+    expect(normalize(result)).toBe(normalize(expected))
   })
 
   it('creates a rule with multiple properties', () => {
@@ -29,6 +29,6 @@ describe('rule', () => {
     font-size: 16px;
 }`
 
-    expect(compact(result)).toBe(compact(expected))
+    expect(normalize(result)).toBe(normalize(expected))
   })
 })
