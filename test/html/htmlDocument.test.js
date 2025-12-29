@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { htmlDocument, compact } from '../../html.js'
+import { htmlDocument, isEquivalent } from '../../html.js'
 
 describe('htmlDocument', () => {
   it('returns a complete HTML document', () => {
@@ -20,6 +20,6 @@ describe('htmlDocument', () => {
 </body>
 </html>`
 
-    expect(result).toBe(compact(expected))
+    expect(isEquivalent(result)(expected)).toBe(true)
   })
 })
