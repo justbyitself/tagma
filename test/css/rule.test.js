@@ -1,7 +1,7 @@
 import { describe, it } from 'std/testing/bdd'
 import { expect } from 'std/expect'
 
-import { rule, normalize } from '../../css.js'
+import { rule, isEquivalent } from '../../css.js'
 
 describe('rule', () => {
   it('creates a basic CSS rule with a single property', () => {
@@ -10,10 +10,10 @@ describe('rule', () => {
     })
 
     const expected = `body {
-    color: black;
-}`
+      color: black;
+    }`
 
-    expect(normalize(result)).toBe(normalize(expected))
+    expect(isEquivalent(result)(expected)).toBe(true)
   })
 
   it('creates a rule with multiple properties', () => {
@@ -24,11 +24,11 @@ describe('rule', () => {
     })
 
     const expected = `body {
-    color: black;
-    background-color: white;
-    font-size: 16px;
-}`
+      color: black;
+      background-color: white;
+      font-size: 16px;
+    }`
 
-    expect(normalize(result)).toBe(normalize(expected))
+    expect(isEquivalent(result)(expected)).toBe(true)
   })
 })
