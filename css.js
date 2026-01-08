@@ -3,3 +3,6 @@ export { default as cssDocument } from './src/css/cssDocument.js'
 export { default as rule } from './src/css/rule.js'
 export { default as isEquivalent } from './src/css/isEquivalent.js'
 export { default as media } from './src/css/media.js'
+export { default as important } from './src/css/important.js'
+export { default as variable } from './src/css/variable.js'
+
