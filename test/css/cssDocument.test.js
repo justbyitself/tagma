@@ -10,7 +10,6 @@ describe('cssDocument', () => {
     
     const result = cssDocument(rule1, rule2)
     
-    // Verificamos que contenga ambas reglas separadas por un salto de línea
     expect(result).toBe(`${rule1}\n${rule2}`)
   })
 
