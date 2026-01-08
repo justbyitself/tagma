@@ -1,6 +1,6 @@
 {
   "name": "@justbyitself/tagma",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Functional HTML/CSS library",
   "author": "justbyitself",
   "license": "ISC",
@@ -10,6 +10,7 @@
     "./html/attributes": "./htmlAttributes.js",
     "./css": "./css.js",
     "./css/properties": "./cssProperties.js",
+    "./css/themes": "./cssThemes.js",
     "./color": "./color.js",
     "./units": "./units.js"
   },
