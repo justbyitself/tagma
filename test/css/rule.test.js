@@ -31,4 +31,22 @@ describe('rule', () => {
 
     expect(isEquivalent(result)(expected)).toBe(true)
   })
+
+  it('creates a rule from multiple objects', () => {
+    const obj1 = { color: 'black' }
+    const obj2 = {
+        backgroundColor: 'white',
+        fontSize: '16px'
+      }
+
+    const result = rule('body')(obj1, obj2)
+
+    const expected = `body {
+      color: black;
+      background-color: white;
+      font-size: 16px;
+    }`
+
+    expect(isEquivalent(result)(expected)).toBe(true)
+  })
 })
