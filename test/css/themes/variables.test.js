@@ -27,8 +27,8 @@ describe('variables', () => {
     const v = variables(theme)
 
     expect(v).toEqual({
-      onlyLight: 'var(--onlyLight)',
-      onlyDark: 'var(--onlyDark)'
+      onlyLight: 'var(--only-light)',
+      onlyDark: 'var(--only-dark)'
     })
   })
 })
