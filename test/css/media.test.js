@@ -3,7 +3,7 @@ import { expect } from 'std/expect'
 
 import { media, isEquivalent } from '../../css.js'
 
-describe('atRule', () => {
+describe('media', () => {
   it('creates an @media rule wrapping internal rules', () => {
     const result = media('(min-width: 768px)')(
       `body {
