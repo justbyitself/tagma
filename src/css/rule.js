@@ -1,6 +1,7 @@
-import { camelToKebab, join, map, toMapOf as fromKeyValues } from 'taowei'
+import { camelToKebab, join, map, toMapOf as fromKeyValues, toIterable } from 'taowei'
 
-const formatProperty = ([key, value]) => `${camelToKebab(key)}: ${value};`
+const formatProperty = ([k, v]) => 
+  `${camelToKebab(k)}: ${join(' ')(toIterable(v))};`
 
 const rule = (selector) => (properties) => {
   const propertiesStr = join('\n\t')(map(formatProperty)(properties))

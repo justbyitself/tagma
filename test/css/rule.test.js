@@ -16,6 +16,18 @@ describe('rule', () => {
     expect(isEquivalent(result)(expected)).toBe(true)
   })
 
+    it('creates a basic CSS rule with an array-valued property', () => {
+    const result = rule('div')({
+      padding: ['25px', '50px', '75px', '100px']
+    })
+
+    const expected = `div {
+      padding: 25px 50px 75px 100px;
+    }`
+
+    expect(isEquivalent(result)(expected)).toBe(true)
+  })
+
   it('creates a rule with multiple properties', () => {
     const result = rule('body')({
       color: 'black',
